@@ -1,5 +1,7 @@
 'use strict';
 
+// Handles errors of watch (for example compiling sass to css) via gulp-plumber
+// Shows the occuring error message in the console and prevents watch from breaking
 var onError = function (error) {
     console.log(error);
     this.emit('end');
@@ -16,11 +18,19 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber');
 var imgSrc = './src/images/*.*'
 var imgDst = './dist/images/'
+
+// Default task when gulp is called
 gulp.task('default', ['sass', 'watch']);
+
+
+// gulp watch
 gulp.task('watch', function() {
     gulp.watch(imgSrc, ['small', 'medium', 'large', 'imagemin']);
     gulp.watch('./src/sass/*.scss', ['sass']);
 });
+
+// gulp sass
+// compiles sass to css, autoprefixing, compression on
 gulp.task('sass', function() {
     return gulp.src('src/sass/*.scss')
         .pipe(plumber({
@@ -37,6 +47,12 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('dist/css/'))
     gulp.watch('./src/sass/*.scss', ['sass']);
 });
+
+/***********************
+ * gulp images tasks
+  **********************/
+
+// Small size images
 gulp.task('small', function () {
     gulp.src(imgSrc)
         .pipe(imageResize({
@@ -50,6 +66,8 @@ gulp.task('small', function () {
         .pipe(rename({suffix: '-small'}))
         .pipe(gulp.dest(imgDst));
 });
+
+// Medium sized images
 gulp.task('medium', function () {
     gulp.src(imgSrc)
         .pipe(imageResize({
@@ -63,6 +81,8 @@ gulp.task('medium', function () {
         .pipe(rename({suffix: '-medium'}))
         .pipe(gulp.dest(imgDst));
 });
+
+// Large sized images
 gulp.task('large', function () {
     gulp.src(imgSrc)
         .pipe(imageResize({
@@ -76,10 +96,14 @@ gulp.task('large', function () {
         .pipe(rename({suffix: '-large'}))
         .pipe(gulp.dest(imgDst));
 });
+
+// images get minimized
 gulp.task('imageMin', function() {
     gulp.src(imgSrc)
         .pipe(changed(imgDst))
         .pipe(imagemin())
         .pipe(gulp.dest(imgDst));
 });
+
+// gulp images task - crops all image sizes and minimzes them
 gulp.task('images', ['small', 'medium', 'large']);
