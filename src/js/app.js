@@ -32,10 +32,10 @@ var todoApp = new Vue({
         this.checkDone();
     },
     methods: {
-        checkDone: function () {
-            for(var i = 0; i<this.todos.length; i++) {
-                console.log(this.todos[i].done);
-            }
+        toggleDone: function (todo) {
+            console.log('todo', todo);
+            
+            todo.done = !todo.done;
         }
     }
 });

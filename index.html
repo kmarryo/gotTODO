@@ -14,7 +14,7 @@
 <div id="todo-container">
     <h2>Your tasks</h2>
     <ul class="tasks">
-        <li v-for="todo in todos" v-bind:class="{ done: todo.done }"><input type="checkbox" name="test" v-model="todo.done" v-bind:id="todo.id"><label v-bind:for="todo.id">{{todo.name}</label></li>
+        <li v-for="todo in todos" v-bind:class="{ done: todo.done }" v-on:click="toggleDone(todo)"><label v-bind:for="todo.id"></label><input name="test" v-model="todo.name" v-bind:id="todo.id"></li>
     </ul>
 </div>
 
