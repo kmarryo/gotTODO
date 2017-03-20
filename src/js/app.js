@@ -33,9 +33,11 @@ var todoApp = new Vue({
     },
     methods: {
         toggleDone: function (todo) {
-            console.log('todo', todo);
-            
             todo.done = !todo.done;
+        },
+        deleteTodo: function (todo) {
+            var index = this.todos.indexOf(todo)
+            this.todos.splice(index, 1)
         }
     }
 });
