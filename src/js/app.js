@@ -29,7 +29,7 @@ var todoApp = new Vue({
         ]
     },
     ready: function () {
-        this.checkDone();
+        //this.checkDone();
     },
     methods: {
         toggleDone: function (todo) {
@@ -41,6 +41,18 @@ var todoApp = new Vue({
         },
         setPriority: function (todo) {
             todo.priority === 'High' ? todo.priority = 'Normal' : todo.priority = 'High';
+        },
+        addItem: function () {
+            var idCounter = this.todos.length+1;
+            console.log('this.todos.length', this.todos.length);
+            
+            this.todos.push(
+                {
+                    id: idCounter,
+                    name: '',
+                    done: false,
+                    priority: 'Normal'
+            });
         }
     }
 });
