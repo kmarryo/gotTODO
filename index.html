@@ -15,7 +15,12 @@
 <div id="todo-container">
     <h2>Your tasks</h2>
     <ul class="tasks">
-        <li v-for="todo in todos" v-bind:class="{ done: todo.done }" v-on:click="toggleDone(todo)"><label v-bind:for="todo.id"></label><input name="test" v-model="todo.name" v-bind:id="todo.id"> <button v-on:click="deleteTodo(todo)">Delete task</button></li>
+        <li v-for="todo in todos" v-bind:class="{ done: todo.done }" v-on:click="toggleDone(todo)">
+            <label v-bind:for="todo.id"></label><input name="test" v-model="todo.name" v-bind:id="todo.id">
+            <button v-on:click="deleteTodo(todo)">Delete task</button>
+            <button v-on:click="setPriority(todo)">Priority: {{ todo.priority }}</button>
+
+        </li>
     </ul>
 </div>
 

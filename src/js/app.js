@@ -6,25 +6,25 @@ var todoApp = new Vue({
                 id: 1,
                 name: 'Wash my car',
                 done: false,
-                priority: 0
+                priority: 'Normal'
             },
             {
                 id: 2,
                 name: 'Go for a walk',
                 done: false,
-                priority: 0
+                priority: 'Normal'
             },
             {
                 id: 3,
                 name: 'Do sports',
                 done: false,
-                priority: 1
+                priority: 'High'
             },
             {
                 id: 4,
                 name: 'Learn JavaScrizzle',
                 done: true,
-                priority: 1
+                priority: 'High'
             }
         ]
     },
@@ -38,6 +38,9 @@ var todoApp = new Vue({
         deleteTodo: function (todo) {
             var index = this.todos.indexOf(todo)
             this.todos.splice(index, 1)
+        },
+        setPriority: function (todo) {
+            todo.priority === 'High' ? todo.priority = 'Normal' : todo.priority = 'High';
         }
     }
 });
