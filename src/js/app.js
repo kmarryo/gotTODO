@@ -6,7 +6,8 @@ var todoApp = new Vue({
                 id: 1,
                 name: '',
                 done: false,
-                priority: 'Normal'
+                priority: 'Normal',
+                priorityHigh: false
             }
         ]
     },
@@ -22,7 +23,13 @@ var todoApp = new Vue({
             this.todos.splice(index, 1)
         },
         setPriority: function (todo) {
+            // Checks in which state the priority is and toggles between 'High' and 'Normal' when the Priority-Button is clicked
             todo.priority === 'High' ? todo.priority = 'Normal' : todo.priority = 'High';
+
+            // Checks if the priority is set to High - triggers the class Binding on the li
+            todo.priorityHigh = !todo.priorityHigh;
+            console.log('todo.priorityHigh', todo.priorityHigh);
+            
         },
         addItem: function (todo) {
             // ID of Task. For every new item in the array the id gets increased by 1

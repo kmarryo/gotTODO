@@ -20,6 +20,15 @@
         text-decoration: line-through;
       }
     }
+    &.high-priority {
+      .todos-text {
+        background-color: rgba(255, 51, 51, 0.6);
+        color: #fff;
+        &::placeholder {
+          color: #fff;
+        }
+      }
+    }
     &:before {
       content: '\f046';
       font-family: FontAwesome;
