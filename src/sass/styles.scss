@@ -1,8 +1,30 @@
+/* VARIABLES **/
+$heading-font: 'Pacifico', cursive;
+$got-shadow: #00cccc;
+$todo-font: 'Indie Flower', cursive;
+
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+h1 {
+  text-align: center;
+  font-family: $heading-font;
+  font-size: 3rem;
+  .got {
+    color: #e6ffff;
+    text-shadow: 0 -2px $got-shadow, 2px 0 $got-shadow, 0 2px $got-shadow, -2px 0 $got-shadow;
+  }
+  .todo-heading {
+    background: -webkit-linear-gradient(#003333, #00cccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 
 .tasks {
   list-style-type: none;
@@ -16,7 +38,9 @@
     .todos-text {
       width: 100%;
       height: 50px;
-      font-size: 18px;
+      font-family: $todo-font;
+      padding-top: 0.5rem;
+      font-size: 2rem;
       border-radius: 4px;
       border: 1px solid #ddd;
       text-align: center;
