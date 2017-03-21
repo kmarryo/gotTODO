@@ -19,8 +19,8 @@ var todoApp = new Vue({
             todo.done = !todo.done;
         },
         deleteTodo: function (todo) {
-            var index = this.todos.indexOf(todo)
-            this.todos.splice(index, 1)
+            var index = this.todos.indexOf(todo);
+            this.todos.splice(index, 1);
         },
         setPriority: function (todo) {
             // Checks in which state the priority is and toggles between 'High' and 'Normal' when the Priority-Button is clicked
