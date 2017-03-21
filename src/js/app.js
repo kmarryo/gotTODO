@@ -1,5 +1,5 @@
 var todoApp = new Vue({
-    el: '#todo-container',
+    el: '#todo_container',
     data: {
         todos: [
             {
@@ -25,10 +25,13 @@ var todoApp = new Vue({
             todo.priority === 'High' ? todo.priority = 'Normal' : todo.priority = 'High';
         },
         addItem: function (todo) {
+            // ID of Task. For every new item in the array the id gets increased by 1
             var idCounter = this.todos.length+1;
-            console.log('this.todos.length', this.todos.length);
+            // Gets the last item of the array
+            var lastTodo = this.todos[this.todos.length-1];
 
-            if(todo === this.todos[this.todos.length-1]) {
+            // Item is the last task in the array
+            if(todo === lastTodo) {
                 this.todos.push(
                     {
                         id: idCounter,
@@ -36,6 +39,9 @@ var todoApp = new Vue({
                         done: false,
                         priority: 'Normal'
                     });
+                setTimeout(function () {
+                    $('#todo_container li:last-of-type .todos-text').focus();
+                }, 5);
             }
         }
     }
