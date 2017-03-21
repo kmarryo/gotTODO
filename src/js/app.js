@@ -42,17 +42,19 @@ var todoApp = new Vue({
         setPriority: function (todo) {
             todo.priority === 'High' ? todo.priority = 'Normal' : todo.priority = 'High';
         },
-        addItem: function () {
+        addItem: function (todo) {
             var idCounter = this.todos.length+1;
             console.log('this.todos.length', this.todos.length);
-            
-            this.todos.push(
-                {
-                    id: idCounter,
-                    name: '',
-                    done: false,
-                    priority: 'Normal'
-            });
+
+            if(todo === this.todos[this.todos.length-1]) {
+                this.todos.push(
+                    {
+                        id: idCounter,
+                        name: '',
+                        done: false,
+                        priority: 'Normal'
+                    });
+            }
         }
     }
 });
