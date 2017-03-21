@@ -40,7 +40,7 @@ var todoApp = new Vue({
                         priority: 'Normal'
                     });
                 setTimeout(function () {
-                    $('#todo_container li:last-of-type .todos-text').focus();
+                    $('#todo_container li').find('.todos-text').focus();
                 }, 5);
             }
         }
