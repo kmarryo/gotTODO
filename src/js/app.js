@@ -4,27 +4,9 @@ var todoApp = new Vue({
         todos: [
             {
                 id: 1,
-                name: 'Wash my car',
+                name: '',
                 done: false,
                 priority: 'Normal'
-            },
-            {
-                id: 2,
-                name: 'Go for a walk',
-                done: false,
-                priority: 'Normal'
-            },
-            {
-                id: 3,
-                name: 'Do sports',
-                done: false,
-                priority: 'High'
-            },
-            {
-                id: 4,
-                name: 'Learn JavaScrizzle',
-                done: true,
-                priority: 'High'
             }
         ]
     },
