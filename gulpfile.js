@@ -42,9 +42,9 @@ gulp.task('sass', function() {
         }))
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(gulp.dest('./css'))
-        .pipe(concatCSS("styles.css"))
+        //.pipe(concatCSS("styles.css"))
         //.pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('dist/css/'))
+        //.pipe(gulp.dest('dist/css/'))
     gulp.watch('./src/sass/*.scss', ['sass']);
 });
 

@@ -9,7 +9,34 @@
   padding-left: 0;
   width: 75%;
   margin: 0 auto;
-  .done {
-    background-color: lime;
+  li {
+    margin-bottom: 1rem;
+    position: relative;
+    &.done {
+      &:before {
+        color: limegreen;
+      }
+      .todos-text {
+        text-decoration: line-through;
+      }
+    }
+    &:before {
+      content: '\f046';
+      font-family: FontAwesome;
+      font-size: 3rem;
+      position: absolute;
+      top: 3px;
+      left: -70px;
+    }
   }
+
+}
+
+.todos-text {
+  width: 460px;
+  height: 50px;
+  font-size: 18px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  text-align: center;
 }
