@@ -5,27 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Pacifico" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 
     <title>gotTODO - ToDo-App made with love and Vue.js</title>
 </head>
 <body>
-<h1><span class="got">got</span><span class="todo-heading">TODO</span></h1>
-<hr>
 <main>
-<div id="todo_container">
-    <h2>Your tasks</h2>
-    <ul class="tasks">
-        <li v-for="todo in todos" v-bind:class="{ done: todo.done, 'high-priority': todo.priorityHigh }" v-on:click.self="toggleDone(todo)">
-            <label v-bind:for="todo.id"></label><input class="todos-text" type="text" name="test" v-model="todo.name" v-bind:id="todo.id" v-on:keyup.enter="addItem(todo)" placeholder="Add new task">
-            <button v-if="(todos.length > 1)" v-on:click="deleteTodo(todo)">Delete task</button>
-            <i class="fa fa-exclamation-circle" aria-hidden="true" v-on:click="setPriority(todo)"></i>
-        </li>
-    </ul>
-    <!--<button v-on:click="addItem">Add item</button> -->
-</div>
+    <h1><span class="got">got</span><span class="todo-heading">TODO</span></h1>
+    <hr>
+    <section>
+        <div id="todo_container">
+            <h2>Your tasks</h2>
+            <ul class="tasks">
+                <li v-for="todo in todos" v-bind:class="{ done: todo.done, 'high-priority': todo.priorityHigh }"
+                    v-on:click.self="toggleDone(todo)">
+                    <label v-bind:for="todo.id"></label><input class="todos-text" type="text" name="test"
+                                                               v-model="todo.name" v-bind:id="todo.id"
+                                                               v-on:keyup.enter="addItem(todo)"
+                                                               placeholder="Add new task">
+                    <button v-if="(todos.length > 1)" v-on:click="deleteTodo(todo)">Delete task</button>
+                    <i class="fa fa-exclamation-circle" aria-hidden="true" v-on:click="setPriority(todo)"></i>
+                </li>
+            </ul>
+            <!--<button v-on:click="addItem">Add item</button> -->
+        </div>
+    </section>
 </main>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
