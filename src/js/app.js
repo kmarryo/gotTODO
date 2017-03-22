@@ -13,7 +13,7 @@ var todoApp = new Vue({
     },
     mounted: function () {
         this.$nextTick(function () {
-            
+
         });
     },
     methods: {
@@ -22,7 +22,16 @@ var todoApp = new Vue({
         },
         deleteTodo: function (todo) {
             var index = this.todos.indexOf(todo);
-            this.todos.splice(index, 1);
+
+            if(this.todos.length === 1) {
+                todo.id = 1;
+                todo.name = '';
+                todo.done = false;
+                todo.priority = 'Normal';
+                todo.priorityHigh = false;
+            } else {
+                this.todos.splice(index, 1);
+            }
         },
         setPriority: function (todo) {
             // Checks in which state the priority is and toggles between 'High' and 'Normal' when the Priority-Button is clicked
@@ -30,8 +39,6 @@ var todoApp = new Vue({
 
             // Checks if the priority is set to High - triggers the class Binding on the li
             todo.important = !todo.important;
-            console.log('todo.important', todo.important);
-            
         },
         addItem: function (todo) {
             // ID of Task. For every new item in the array the id gets increased by 1
@@ -40,7 +47,7 @@ var todoApp = new Vue({
             var lastTodo = this.todos[this.todos.length-1];
 
             // Item is the last task in the array
-            if(todo === lastTodo) {
+            if(todo === lastTodo && todo.name !== '') {
                 this.todos.push(
                     {
                         id: idCounter,
