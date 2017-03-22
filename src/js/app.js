@@ -7,7 +7,7 @@ var todoApp = new Vue({
                 name: '',
                 done: false,
                 priority: 'Normal',
-                priorityHigh: false
+                important: false
             }
         ]
     },
@@ -27,8 +27,8 @@ var todoApp = new Vue({
             todo.priority === 'High' ? todo.priority = 'Normal' : todo.priority = 'High';
 
             // Checks if the priority is set to High - triggers the class Binding on the li
-            todo.priorityHigh = !todo.priorityHigh;
-            console.log('todo.priorityHigh', todo.priorityHigh);
+            todo.important = !todo.important;
+            console.log('todo.important', todo.important);
             
         },
         addItem: function (todo) {

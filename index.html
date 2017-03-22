@@ -20,7 +20,7 @@
         <div id="todo_container">
             <h2>Your tasks</h2>
             <ul class="tasks">
-                <li v-for="todo in todos" v-bind:class="{ done: todo.done, 'high-priority': todo.priorityHigh }"
+                <li v-for="todo in todos" v-bind:class="{ done: todo.done, important: todo.important }"
                     v-on:click.self="toggleDone(todo)">
                     <label v-bind:for="todo.id"></label><input class="todos-text" type="text" name="test"
                                                                v-model="todo.name" v-bind:id="todo.id"
