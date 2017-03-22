@@ -28,11 +28,20 @@ body {
 }
 
 main {
-  width: 70%;
+  width: 100%;
+  border-radius: 0;
+  padding: 0;
   margin: 0 auto;
   background-color: #fff;
-  padding: 0 2rem 3rem;
-  border-radius: 0 0 6px 6px;
+  -webkit-transition: ease-in 0.3s;
+  -moz-transition: ease-in 0.3s;
+  -ms-transition: ease-in 0.3s;
+  -o-transition: ease-in 0.3s;
+  transition: ease-in 0.3s;
+}
+
+section {
+  padding: 10px;
 }
 
 h1 {
@@ -73,14 +82,15 @@ h2 {
   max-width: 750px;
   li {
     position: relative;
-    width: 75%;
+    width: 65%;
     margin: 0 auto 1rem;
     .todos-text {
       width: 100%;
-      height: 50px;
+      height: 40px;
+      font-size: 1.5rem;
+      margin-left: -10px;
       font-family: $todo-font;
       padding-top: 0.5rem;
-      font-size: 2rem;
       border-radius: 4px;
       border: 1px solid #ddd;
       text-align: center;
@@ -111,59 +121,63 @@ h2 {
       content: '\f046';
       font-family: FontAwesome;
       color: #00cccc;
-      font-size: 3rem;
+      font-size: 2rem;
       position: absolute;
       top: 6px;
-      left: -60px;
+      left: -50px;
     }
   }
   .fa-exclamation-circle:before {
     position: absolute;
     top: 2px;
-    right: -55px;
-    font-size: 3rem;
+    right: -25px;
+    font-size: 2rem;
     color: #00cccc;
   }
   .fa-minus-circle:before {
     position: absolute;
     top: 2px;
-    right: -115px;
-    font-size: 3rem;
+    right: -60px;
+    font-size: 2rem;
     color: #00cccc;
   }
 }
 
-@media screen and (max-width: 1190px) {
+@media screen and (min-width: 769px) {
   main {
-    width: 100%;
-    border-radius: 0;
-    padding: 0;
+    padding: 0 2rem 3rem;
   }
   section {
-    padding: 10px;
+    padding: 0;
   }
   .tasks {
     li {
-      width: 65%;
+      width: 75%;
       .todos-text {
-        height: 40px;
-        font-size: 1.5rem;
-        margin-left: -10px;
+        height: 50px;
+        font-size: 2rem;
       }
       &:before {
-        font-size: 2rem;
-        left: -50px;
+        font-size: 3rem;
+        left: -60px;
       }
     }
     .fa-exclamation-circle:before,
     .fa-minus-circle:before {
-      font-size: 2rem;
+      font-size: 3rem;
     }
     .fa-exclamation-circle:before {
-      right: -25px;
+      right: -55px;
     }
     .fa-minus-circle:before {
-      right: -60px;
+      right: -115px;
     }
+  }
+}
+
+@media screen and (min-width: 1190px) {
+  main {
+    width: 70%;
+    border-radius: 0 0 6px 6px;
   }
 }
