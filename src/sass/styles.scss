@@ -132,3 +132,38 @@ h2 {
     color: #00cccc;
   }
 }
+
+@media screen and (max-width: 1190px) {
+  main {
+    width: 100%;
+    border-radius: 0;
+    padding: 0;
+  }
+  section {
+    padding: 10px;
+  }
+  .tasks {
+    li {
+      width: 65%;
+      .todos-text {
+        height: 40px;
+        font-size: 1.5rem;
+        margin-left: -10px;
+      }
+      &:before {
+        font-size: 2rem;
+        left: -50px;
+      }
+    }
+    .fa-exclamation-circle:before,
+    .fa-minus-circle:before {
+      font-size: 2rem;
+    }
+    .fa-exclamation-circle:before {
+      right: -25px;
+    }
+    .fa-minus-circle:before {
+      right: -60px;
+    }
+  }
+}
