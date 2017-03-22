@@ -11,8 +11,10 @@ var todoApp = new Vue({
             }
         ]
     },
-    ready: function () {
-        //this.checkDone();
+    mounted: function () {
+        this.$nextTick(function () {
+            
+        });
     },
     methods: {
         toggleDone: function (todo) {
