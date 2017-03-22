@@ -26,7 +26,7 @@
                                                                v-model="todo.name" v-bind:id="todo.id"
                                                                v-on:keyup.enter="addItem(todo)"
                                                                placeholder="Add new task">
-                    <i class="fa fa-minus-circle" aria-hidden="true" v-if="(todos.length > 1)" v-on:click="deleteTodo(todo)"></i>
+                    <i class="fa fa-minus-circle" aria-hidden="true" v-on:click="deleteTodo(todo)"></i>
                     <i class="fa fa-exclamation-circle" aria-hidden="true" v-on:click="setPriority(todo)"></i>
                 </li>
             </ul>
